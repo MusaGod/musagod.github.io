@@ -13,14 +13,14 @@
     <button onclick="incrementScore()">Click Me!</button>
     <script>
         let score = 0;
-        let speed = 1000;
+        let speed = 100;
         function incrementScore() {
             score += 1;
             document.getElementById("score").innerText = "Score: " + score;
         }
         function ScoreIncreaseByTime(){
             score++;
-            document.getElementById("score").innerText = score;
+            document.getElementById("score").innerText = "Score: " + score;
         }
         setInterval(ScoreIncreaseByTime, speed);
     </script>
