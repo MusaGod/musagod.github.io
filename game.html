@@ -17,6 +17,11 @@
             score += 1;
             document.getElementById("score").innerText = "Score: " + score;
         }
+        function ScoreIncreaseByTime(){
+            score++;
+            document.getElementById("number").innerText = number;
+        }
+        setInterval(ScoreIncreaseByTime, 1000);
     </script>
 </body>
 </html>
