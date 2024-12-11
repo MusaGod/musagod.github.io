@@ -17,6 +17,7 @@
         let score = 0;
         let speed = 100;
         let intervalId;
+        let paused = false;
         function incrementScore() {
             score += 1;
             document.getElementById("score").innerText = "Score: " + score;
@@ -26,13 +27,19 @@
             document.getElementById("score").innerText = "Score: " + score;
         }
         function pause(){
+            if (pause == false){
             clearInterval(intervalId);
+            pause = true;
+            }
         }
         function resume(){
+            if (pause == true){
            intervalId = setInterval(ScoreIncreaseByTime, speed);
+            pause = false
         }
-        
-        setInterval(ScoreIncreaseByTime, speed);
+        }
+        //Start
+        intervalId = setInterval(increaseNumber, speed);
     </script>
 </body>
 </html>
