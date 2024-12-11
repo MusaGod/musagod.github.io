@@ -13,6 +13,7 @@
     <button onclick="incrementScore()">Click Me!</button>
     <button onclick="pause()">Pause</button>
     <button onclick="resume()">Resume</button>
+    <h2>Run</h2> 
     <script>
         let score = 0;
         let speed = 100;
@@ -21,6 +22,9 @@
         function incrementScore() {
             score += 1;
             document.getElementById("score").innerText = "Score: " + score;
+        }
+        function startIncrement() {
+            intervalId = setInterval(ScoreIncreaseByTime, speed); // Tăng số 
         }
         function ScoreIncreaseByTime(){
             score++;
@@ -34,12 +38,12 @@
         }
         function resume(){
             if (pause == true){
-           intervalId = setInterval(ScoreIncreaseByTime, speed);
+           startIncrement();
             pause = false
         }
         }
         //Start
-        intervalId = setInterval(increaseNumber, speed);
+       startIncrement();
     </script>
 </body>
 </html>
