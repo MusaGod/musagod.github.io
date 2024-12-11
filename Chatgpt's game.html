@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incremental Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        button { font-size: 20px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Incremental Game</h1>
+    <p id="score">Score: 0</p>
+    <button onclick="incrementScore()">Click Me!</button>
+    <script>
+        let score = 0;
+        function incrementScore() {
+            score += 1;
+            document.getElementById("score").innerText = "Score: " + score;
+        }
+    </script>
+</body>
+</html>
