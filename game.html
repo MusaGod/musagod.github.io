@@ -31,15 +31,15 @@
             document.getElementById("score").innerText = "Score: " + score;
         }
         function pause(){
-            if (pause == false){
+            if (paused == false){
             clearInterval(intervalId);
-            pause = true;
+            paused = true;
             }
         }
         function resume(){
-            if (pause == true){
+            if (paused == true){
            startIncrement();
-            pause = false
+            paused = false
         }
         }
         //Start
