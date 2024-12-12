@@ -10,9 +10,7 @@
 <body>
     <h1>Incremental Game</h1>
     <p id="score">Score: 0</p>
-    <button onclick="incrementScore()">Click Me!</button>
-    <button onclick="pause()">Pause</button>
-    <button onclick="resume()">Resume</button>
+    <button id="pause" onclick="pause()">Pause</button>
     <h2>Run</h2> 
     <script>
         let score = 0;
@@ -34,14 +32,15 @@
             if (paused == false){
             clearInterval(intervalId);
             paused = true;
+            document.getElementById("pause").innerText = "Resume";
             }
-        }
-        function resume(){
             if (paused == true){
            startIncrement();
             paused = false
+            document.getElementById("pause").innerText = "Pause";
         }
         }
+        
         //Start
        startIncrement();
     </script>
