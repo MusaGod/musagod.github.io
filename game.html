@@ -23,8 +23,28 @@
      <p id="money">Money: 0</p>
      <p id="salary">Salary: 0</p>
      <p id="payment">Payment: 0</p>
-        <p>B</p>
+        <p>Going</p>
     </div>
+    <div>
+       <ul>
+           <li>A</li>
+           <li>B</li>
+           <li>C</li>
+       </ul>
+        <div class = "tab-content">
+            <div id="A">
+                <h1>A</h1>
+                <p>AAA</p>
+        </div>
+        <div id="B">
+                <h1>B</h1>
+                <p>BBB</p>
+        </div>
+            <div id="C">
+                <h1>C</h1>
+                <p>CCC</p>
+        </div>
+   </div>
     <script>
         let score = 0;
         let speed = 100;
@@ -42,8 +62,8 @@
             age++;
             document.getElementById("money").innerText = "Money: " + money;
             document.getElementById("age").innerText = "Age: " + age;
-            document.getElementById("salary").innerText = "Salary: " + age;
-            document.getElementById("payment").innerText = "Payment: " + age;
+            document.getElementById("salary").innerText = "Salary: " + salary;
+            document.getElementById("payment").innerText = "Payment: " + payment;
             
         }
         function pause(){
