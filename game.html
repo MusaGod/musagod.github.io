@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="script.js" defer></script>
+    <link href="styles.css" rel="stylesheet">
     <title>Game Test</title>
     <style>
         body { font-family: Arial, sans-serif; 
@@ -27,21 +28,21 @@
         <p>Going</p>
     </div>
     <div>
-       <ul>
-           <li>A</li>
-           <li>B</li>
-           <li>C</li>
+       <ul class="tabs">
+           <li data-tab-target="#A" class ="active tab">A</li>
+           <li data-tab-target="#B" class ="tab">B</li>
+           <li data-tab-target="#C" class ="tab">C</li>
        </ul>
         <div class = "tab-content">
-            <div id="A">
+            <div id="A" data-tab-content class="active">
                 <h1>A</h1>
                 <p>AAA</p>
         </div>
-        <div id="B">
+        <div id="B" data-tab-content>
                 <h1>B</h1>
                 <p>BBB</p>
         </div>
-            <div id="C">
+            <div id="C" data-tab-content>
                 <h1>C</h1>
                 <p>CCC</p>
         </div>
