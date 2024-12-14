@@ -4,46 +4,22 @@
     <title>Game Test</title>
     <style>
         body { font-family: Arial, sans-serif; 
-              text-align: center; 
-              margin-top: 50px; 
-             display: flex;
-              height: 100vh;
+              text-align: left; 
+              margin-top: 50px;
+              background-color:black;
+              color: white:
              }
-        .left-panel{
-            width: 25%; /* Chiếm 25% màn hình */
-            border: 1px solid #ccc; /* Viền xung quanh */
-            padding: 20px; /* Khoảng cách trong */
-            background-color: #f4f4f4; /* Màu nền nhạt */
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
-        }
-         /* Nội dung trong ô */
-        .stat {
-            margin-bottom: 15px; /* Khoảng cách giữa các thông số */
-        }
-
-        /* Tiêu đề trong ô */
-        .left-panel h3 {
-            margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
-        }
     </style>
 </head>
 <body>
     <h1>Incremental Game</h1>
-    <h2>A</h2> 
+     <p id="score">Score: 0</p>
+        <button id="pauseButton" onclick="pause()">Pause</button>
+        <button>Button 3</button>
+        <p>Some text or other elements can go here.</p>
+    <h2>B</h2> 
     <script>
-        <!-- Ô bên trái -->
-    <div class="left-panel">
-        <h3>Game Stats</h3>
-        <div class="stat">
-            <strong>Money:</strong> <span id="money">0</span>
-        </div>
-        <div class="stat">
-            <strong>Level:</strong> <span id="level">1</span>
-        </div>
-        <div class="stat">
-            <strong>XP:</strong> <span id="xp">0</span>
-        </div>
-    </div>
+       
         let score = 0;
         let speed = 100;
         let intervalId;
