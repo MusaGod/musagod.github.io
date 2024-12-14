@@ -6,48 +6,7 @@
         body { font-family: Arial, sans-serif; 
               text-align: center; 
               margin-top: 50px; 
-              display:flex;
-              height: 100vh;
-             }
-        .left-column{
-            width: 25%; /* Chiếm 25% chiều rộng */
-            border: 1px solid #ccc; /* Viền cho ô */
-            padding: 20px; /* Khoảng cách bên trong */
-        }
-        .right-column {
-            flex-grow: 1; /* Chiếm phần còn lại của chiều rộng */
-            padding: 20px; /* Khoảng cách bên trong */
-        }
-        .left-column button {
-            display: block; /* Mỗi nút nằm trên một dòng riêng */
-            width: 100%; /* Đầy chiều rộng ô */
-            padding: 10px;
-            margin: 10px 0; /* Khoảng cách giữa các nút */
-            background-color: #007BFF; /* Màu nền */
-            color: white; /* Màu chữ */
-            border: none;
-            border-radius: 5px; /* Bo tròn góc nút */
-            cursor: pointer; /* Con trỏ tay khi rê chuột */
-        }
-        .left-column button:hover {
-            background-color: #0056b3; /* Đổi màu khi hover */
-        }
-        /* Bảng trong ô bên phải */
-        table {
-            width: 100%; /* Bảng chiếm toàn bộ chiều rộng ô */
-            border-collapse: collapse; /* Xóa khoảng cách giữa các đường kẻ */
-        }
-
-        table th, table td {
-            border: 1px solid #ccc; /* Viền bảng */
-            padding: 10px;
-            text-align: left; /* Căn chữ về bên trái */
-        }
-
-        table th {
-            background-color: #f4f4f4; /* Màu nền tiêu đề bảng */
-        }
-        button { font-size: 20px; padding: 10px; }
+             
     </style>
 </head>
 <body>
@@ -83,14 +42,12 @@
             document.getElementById("pauseButton").innerText = "Pause";
         }
         }
-        <!-- Ô bên trái -->
-    <div class="left-column">
         <h1>Incremental Game</h1>
         <p id="score">Score: 0</p>
         <button id="pauseButton" onclick="pause()">Pause</button>
         <button>Button 3</button>
         <p>Some text or other elements can go here.</p>
-    </div>
+
         //Start
        startIncrement();
     </script>
