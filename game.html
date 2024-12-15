@@ -143,9 +143,12 @@
        startIncrement();
        openTab(event,'Jobs');
         //Mở khóa
-        if (money >= 100){
-            unlock(spiritStone);
-        }
+        const interval = setInterval(() => {
+    if (money >= 100) {
+        unlock(spiritStone);
+        clearInterval(interval); // Dừng kiểm tra (tuỳ chọn)
+    }
+}, 1000);
     </script>
 </body>
 </html>
