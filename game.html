@@ -92,7 +92,6 @@
      <h5 id="net">Net/day: 0</h5>
      <h5 id="salary">Income/day: 0</h5>
      <h5 id="payment">Expense/day: 0</h5>
-        <p id="log">3</p>
     </div>
     <div style="width: 600px;">
        <div class="tab">
@@ -105,12 +104,12 @@
             <table class="the-table">
                 <thead>
                 <tr>
-                    <td>Common Jobs</td>
-                    <td>Level</td>
-                    <td>Salary</td>
-                    <td>XP/day</td>
-                    <td>XP left</td>
-                    <td>Max Level</td>
+                    <th>Common Jobs</th>
+                    <th>Level</th>
+                    <th>Salary</th>
+                    <th>XP/day</th>
+                    <th>XP left</th>
+                    <th>Max Level</th>
                 </tr>
                     </thead>
                 <tbody>
@@ -172,7 +171,7 @@
             money = money + salary - payment;
             age++;
             //Money
-            document.getElementById("money").innerText = "Money: " + money;
+            document.getElementById("money").innerText = "Balance(in coins): " + money;
             //Age
             var remainder
             remainder = age % 360;
@@ -181,8 +180,8 @@
             var netPerDay
             netPerDay = salary - payment
             document.getElementById("salary").innerText = "Net/day:  " + netPerDay;
-            document.getElementById("salary").innerText = "Salary: " + salary;
-            document.getElementById("payment").innerText = "Payment: " + payment;
+            document.getElementById("salary").innerText = "Income/day: " + salary;
+            document.getElementById("payment").innerText = "Expense/day: " + payment;
             //UNLOCK
             if (money >= 100){
                 unlock("spiritStone");
