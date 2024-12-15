@@ -35,6 +35,45 @@
   padding: 6px 12px;
   border-top: none;
 }
+        .progress-bar-wrapper {
+    position: relative;
+    width: 100%; /* Chiều rộng của thanh */
+    height: 40px; /* Chiều cao của thanh */
+    margin: 10px 0; /* Khoảng cách xung quanh */
+}
+
+/* Thanh chứa */
+.progress-bar-container {
+    width: 100%;
+    height: 100%;
+    background-color: #0074D9; /* Màu xanh */
+    border-radius: 5px; /* Bo góc */
+    overflow: hidden; /* Đảm bảo thanh lấp đầy không bị vượt ra */
+    position: absolute; /* Định vị để xếp chồng dưới lớp chữ */
+    top: 0;
+    left: 0;
+}
+
+/* Thanh lấp đầy */
+.progress-bar-fill {
+    height: 100%; /* Chiều cao đầy đủ */
+    background-color: #FFDC00; /* Màu vàng */
+    width: 0%; /* Ban đầu chưa có XP */
+    transition: width 0.3s ease; /* Hiệu ứng trượt mượt mà */
+    border-radius: 5px 0 0 5px; /* Bo góc bên trái */
+}
+
+/* Chữ hiển thị */
+.progress-text {
+    position: absolute; /* Định vị chữ nằm trên thanh */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Đưa chữ về giữa chính xác */
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff; /* Màu chữ (nổi bật trên thanh) */
+    pointer-events: none; /* Để chuột không tương tác với chữ */
+}
         .spirit{
             display:none
         }
@@ -67,7 +106,7 @@
         <div id="Jobs" class="tabContent">
             <table>
                 <tr>
-                    <div style="background-color: green; display: flex;>
+                    <div style="background-color: green; display: flex;">
                     <td>Common Jobs</td>
                     <td>Level</td>
                     <td>Salary</td>
@@ -77,15 +116,15 @@
                     </div>
                 </tr>
                 <tr>
-                    <td>Common Jobs</td>
-                    <td>Level</td>
-                    <td>Salary</td>
-                    <td>XP/day</td>
-                    <td>XP left</td>
-                    <td>Max Level</td>
-                </tr>
-                <tr>
-                    <td>Common Jobs</td>
+                    <td>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="progress-fill">
+                        Job Name
+                                </div>
+                            </div>                            
+                    </div>
+                    </td>
                     <td>Level</td>
                     <td>Salary</td>
                     <td>XP/day</td>
@@ -118,10 +157,18 @@
         let age = 3600;
         let salary = 1;
         let payment = 0;
+        let XPcurrentJob = 20;
+        let XPneededNextJob = 100;
         let test;
+       function updateProgressBar(){
+           let progressPercent = (XPcurrentJob / XPneededNextJob) * 100;
+           const progressFill = document.getElementById("progress-fill");
+           progressFill.style.width = `${progressPercent}%`;
+    progressFill.style.width = `${progressPercent}%`;
+       }
         function startIncrement() {
             intervalId = setInterval(EverythingIncreaseOverTime, speed); 
-        }
+        } 
         function EverythingIncreaseOverTime(){
             money = money + salary - payment;
             age++;
@@ -141,6 +188,8 @@
             if (money >= 100){
                 unlock("spiritStone");
             }
+            //XP INCREASEMENT
+            updateProgressBar();
             
         }
         function pause(){
