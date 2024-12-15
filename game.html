@@ -49,12 +49,12 @@
      <p id="money">Money: 0</p>
      <p id="salary">Salary: 0</p>
      <p id="payment">Payment: 0</p>
-        <p>Maybe Good Now</p>
+        <p>Good Now?</p>
     </div>
     <div>
        <div class="tab">
-           <button class="tabLinks" onclick="openTab(a,Jobs)">Jobs</button>
-           <button class="tabLinks" onclick="openTab(a,Skills)">Skills</button>
+           <button class="tabLinks" onclick="openTab(event,'Jobs')">Jobs</button>
+           <button class="tabLinks" onclick="openTab(event,'Skills')">Skills</button>
        </div>
         <div id="Jobs" class="tabContent"> </div>
         <h3>Jobs</h3>
@@ -71,6 +71,7 @@
         let age = 3650;
         let salary = 1;
         let payment = 0;
+        let test;
         function startIncrement() {
             intervalId = setInterval(EverythingIncreaseOverTime, speed); 
         }
@@ -95,7 +96,7 @@
             document.getElementById("pauseButton").innerText = "Pause";
         }
         }
-        function openTab(a,tabName){
+        function openTab(evt,tabName){
             var i, tabContent, tabLinks;
             tabContent = document.getElementsByClassName("tabContent");
             for (i=0; i<tabContent.length;i++){
@@ -106,7 +107,8 @@
                 tabLinks[i].className = tabLinks[i].className.replace(" active", "");
             }
             document.getElementById(tabName).style.display= "block";
-            a.currentTarget.className +="active";
+            evt.currentTarget.className +="active";
+            test = a.currentTarget.className;
         }
         //Start
        startIncrement();
