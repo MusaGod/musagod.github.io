@@ -55,7 +55,7 @@
      <h5 id="net">Net/day: 0</h5>
      <h5 id="salary">Income/day: 0</h5>
      <h5 id="payment">Expense/day: 0</h5>
-        <p>OK?</p>
+        <p>Chắc là được rồi đấy?</p>
     </div>
     <div style="width: 600px;">
        <div class="tab">
@@ -145,6 +145,7 @@
         //Mở khóa
         const interval = setInterval(() => {
     if (money >= 100) {
+        console.log("Vào cái if này rồi")
         document.getElementById("spiritStone").style.display = block;
         clearInterval(interval); // Dừng kiểm tra (tuỳ chọn)
     }
