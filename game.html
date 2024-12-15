@@ -135,9 +135,9 @@
             document.getElementById(tabName).style.display= "block";
             evt.currentTarget.className +="active";
         }
-        function unlock(newFeature){
-            document.getElementById(newFeature).style.display = block;
-        }
+       
+            
+        
         
         //Bắt đầu
        startIncrement();
@@ -145,7 +145,7 @@
         //Mở khóa
         const interval = setInterval(() => {
     if (money >= 100) {
-        unlock('spiritStone');
+        document.getElementById("spiritStone").style.display = block;
         clearInterval(interval); // Dừng kiểm tra (tuỳ chọn)
     }
 }, 1000);
