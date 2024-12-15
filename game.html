@@ -62,25 +62,23 @@
     transition: width 0.3s ease; /* Hiệu ứng trượt mượt mà */
     border-radius: 5px 0 0 5px; /* Bo góc bên trái */
 }
-
-/* Chữ hiển thị */
-.progress-text {
-    position: absolute; /* Định vị chữ nằm trên thanh */
-    top: 50%; /* Căn giữa theo chiều dọc */
-    left: 50%; /* Căn giữa theo chiều ngang */
-    transform: translate(-50%, -50%); /* Đưa chữ về giữa chính xác */
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff; /* Màu chữ (nổi bật trên thanh) */
-    pointer-events: none; /* Để chuột không tương tác với chữ */
+.the-table thead th{
+    background-color: #28a745; /* Màu xanh lá cây */
+    color: #ffffff; /* Màu chữ trắng */
+    text-transform: uppercase; /* In hoa chữ */
+    text-align: center; /* Căn giữa nội dung */
+    letter-spacing: 2px; /* Khoảng cách giữa các chữ cái */
+    padding: 10px; /* Khoảng cách giữa nội dung và đường viền */
 }
+        
+
         .spirit{
             display:none
         }
     </style>
 </head>
 <body>
-    <h1><span style ="background-color:tomato;">Da Game</span></h1>
+    <h1><span style ="background-color:tomato;">Game</span></h1>
     <div style= "background-color: #4D4D4D;
         width: 290px;
         padding: 5px;
@@ -104,17 +102,18 @@
            <button class="tabLinks" onclick="openTab(event,'Amulet')">Amulet</button>
        </div>
         <div id="Jobs" class="tabContent">
-            <table>
+            <table class="the-table">
+                <thead>
                 <tr>
-                    <div style="background-color: green; display: flex;">
                     <td>Common Jobs</td>
                     <td>Level</td>
                     <td>Salary</td>
                     <td>XP/day</td>
                     <td>XP left</td>
                     <td>Max Level</td>
-                    </div>
                 </tr>
+                    </thead>
+                <tbody>
                 <tr>
                     <td>
                         <div class="progress-bar-wrapper">
@@ -131,7 +130,7 @@
                     <td>XP left</td>
                     <td>Max Level</td>
                 </tr>
-               
+               </tbody>
             </table>
             
         </div>
@@ -189,6 +188,7 @@
                 unlock("spiritStone");
             }
             //XP INCREASEMENT
+            XPcurrentJob++;
             updateProgressBar();
             
         }
