@@ -108,6 +108,10 @@
             document.getElementById("salary").innerText = "Net/day:  " + netPerDay;
             document.getElementById("salary").innerText = "Salary: " + salary;
             document.getElementById("payment").innerText = "Payment: " + payment;
+            //UNLOCK
+            if (money >= 100){
+                unlock("spiritStone);
+            }
             
         }
         function pause(){
@@ -135,6 +139,9 @@
             document.getElementById(tabName).style.display= "block";
             evt.currentTarget.className +="active";
         }
+        function unlock(newFeature){
+            document.getElementById(newFeature).style.display ="block";
+        }
        
             
         
@@ -142,14 +149,6 @@
         //Bắt đầu
        startIncrement();
        openTab(event,'Jobs');
-        //Mở khóa
-        const interval = setInterval(() => {
-    if (money >= 100) {
-        document.getElementById("log").innerText = "Nice";
-        document.getElementById("spiritStone").style.display = block;
-        clearInterval(interval); // Dừng kiểm tra (tuỳ chọn)
-    }
-}, 1000);
     </script>
 </body>
 </html>
