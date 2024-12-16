@@ -105,17 +105,17 @@
                 <thead>
                 <tr>
                     <th>Common Jobs</th>
-                    <th>Level</th>
-                    <th>Salary</th>
-                    <th>XP/day</th>
-                    <th>XP left</th>
-                    <th>Max Level</th>
+                    <th >Level</th>
+                    <th >Income</th>
+                    <th >XP/day</th>
+                    <th >XP left</th>
+                    <th >Max Level</th>
                 </tr>
                     </thead>
                 <tbody>
                 <tr>
                     <td>
-                        <div class="progress-bar-wrapper">
+                        <div class="progress-bar-wrapper" onclick="run(0)">
                             <div class="progress-bar-container">
                                 <div class="progress-bar-fill" id="0">
                         Farmer
@@ -123,11 +123,11 @@
                             </div>                            
                     </div>
                     </td>
-                    <td>Level</td>
-                    <td>Salary</td>
-                    <td>XP/day</td>
-                    <td>XP left</td>
-                    <td>Max Level</td>
+                    <td class="level" id="0">Level</td>
+                    <td class="income"id="0">Salary</td>
+                    <td class ="XP"id="0">XP/day</td>
+                    <td class ="XPleft" id="0">XP left</td>
+                    <td class ="maxLevel" id="0">Max Level</td>
                 </tr>
                     <tr>
                     <td>
@@ -222,12 +222,30 @@
         let XPcurrentJob = 20;
         let XPneededNextJob = 100;
         let test;
-        let commonJobs = ["Farmer","Better Farmer","Fisherman","Teacher","Merchant"];
+        let runningJob = 0;
+        let jobs = [
+            {name:"Farmer",level:1,XPfirstLevel:100,XPnow:0,XPperDay:1,income:10,maxLevel:0},
+            {name:"Good Farmer",level:1,XPfirstLevel:100,XPnow:0,XPperDay:1,income:20,maxLevel:0},
+            {name:"Fisherman",level:1,XPfirstLevel:100,XPnow:0,XPperDay:1,income:30,maxLevel:0},
+            {name:"Teacher",level:1,XPfirstLevel:100,XPnow:0,XPperDay:1,income:40,maxLevel:0},
+             {name:"Merchant",level:1,XPfirstLevel:100,XPnow:0,XPperDay:1,income:50,maxLevel:0},            
+        ];
        function updateProgressBar(){
            let progressPercent = (XPcurrentJob / XPneededNextJob) * 100;
            var i;
-           for (i=0;i<commonJobs.length;i++){
-               document.getElementById(i.toString()).style.width = `${progressPercent}%`;
+           for (i=0;i<jobs.length;i++){
+               progressPercent = (jobs[i].XPnow/(jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10)))*100;
+               if (jobs[i].XPnow >= jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10) ){
+                   jobs[i].XPnow == 0;
+                   jobs[i].level += 1;
+               }
+               document.querySelector('.level[id=i.toString()]').innerText = jobs[i].level;
+               document.querySelector('.income[id=i.toString()]').innerText = jobs[i].income;
+               document.querySelector('.XP[id=i.toString()]').innerText = jobs[i].XPperDay;
+               const XPleft = jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10) - jobs[i].XPnow;
+               document.querySelector('.XPleft[id=i.toString()]').innerText = XPleft;
+               document.querySelector('.maxLevel[id=i.toString()]').innerText = jobs[i].maxLevel;
+               document.querySelector('.progress-bar-fill[id=i.toString()]').style.width = `${progressPercent}%`;
            }
        }
         function startIncrement() {
@@ -253,10 +271,10 @@
                 unlock("spiritStone");
             }
             //XP INCREASEMENT
-            XPcurrentJob++;
+            jobs[runningJob.toString()].XPnow += jobs[runningJob.toString()].XPperDay;
             updateProgressBar();
-            
         }
+        
         function pause(){
             if (paused == false){
             clearInterval(intervalId);
@@ -284,6 +302,9 @@
         }
         function unlock(newFeature){
             document.getElementById(newFeature).style.display ="block";
+        }
+        function run(number){
+            runningJob = number;
         }
        
             
