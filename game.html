@@ -117,7 +117,7 @@
                     <td>
                         <div class="progress-bar-wrapper">
                             <div class="progress-bar-container">
-                                <div class="progress-bar-fill" id="progress-fill">
+                                <div class="progress-bar-fill" id="0">
                         Farmer
                                 </div>
                             </div>                            
@@ -158,11 +158,13 @@
         let XPcurrentJob = 20;
         let XPneededNextJob = 100;
         let test;
+        let commonJobs = ["Farmer","Fisherman","Miner","Merchant"];
        function updateProgressBar(){
            let progressPercent = (XPcurrentJob / XPneededNextJob) * 100;
-           const progressFill = document.getElementById("progress-fill");
-           progressFill.style.width = `${progressPercent}%`;
-    progressFill.style.width = `${progressPercent}%`;
+           var i;
+           for (i=0;i<commonJobs.length;i++){
+               document.getElementById(i.toString()).style.width = `${progressPercent}%`;
+           }
        }
         function startIncrement() {
             intervalId = setInterval(EverythingIncreaseOverTime, speed); 
