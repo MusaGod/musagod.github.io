@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Game Test1</title>
+    <title>Game Test</title>
     <style>
         body { font-family: Arial, sans-serif; 
               text-align: left; 
@@ -235,16 +235,16 @@
            for (i=0;i<jobs.length;i++){
                progressPercent = (jobs[i].XPnow/(jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10))))*100;
                if (jobs[i].XPnow >= jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10) )){
-                   jobs[i].XPnow == 0;
+                   jobs[i].XPnow = 0;
                    jobs[i].level += 1;
                }
-               document.querySelector('.level[id=i.toString()]').innerText = jobs[i].level;
-               document.querySelector('.income[id=i.toString()]').innerText = jobs[i].income;
-               document.querySelector('.XP[id=i.toString()]').innerText = jobs[i].XPperDay;
-               const XPleft123 = jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10) - jobs[i].XPnow;
-               document.querySelector('.XPleft[id=i.toString()]').innerText = XPleft123;
-               document.querySelector('.maxLevel[id=i.toString()]').innerText = jobs[i].maxLevel;
-               document.querySelector('.progress-bar-fill[id=i.toString()]').style.width = `${progressPercent}%`;
+               document.querySelector('.level[id="'+i+'"]').innerText = jobs[i].level;
+               document.querySelector('.income[id="'+i+'"]').innerText = jobs[i].income;
+               document.querySelector('.XP[id="'+i+'"]').innerText = jobs[i].XPperDay;
+               const XPleft123 = jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10)) - jobs[i].XPnow;
+               document.querySelector('.XPleft[id="'+i+'"]').innerText = XPleft123;
+               document.querySelector('.maxLevel[id="'+i+'"]').innerText = jobs[i].maxLevel;
+               document.querySelector('.progress-bar-fill[id="'+i+'"]').style.width = `${progressPercent}%`;
            }
        }
         function startIncrement() {
@@ -269,7 +269,7 @@
                 unlock("spiritStone");
             }
             //XP INCREASEMENT
-            jobs[runningJob.toString()].XPnow += jobs[runningJob.toString()].XPperDay;
+            jobs[runningJob].XPnow += jobs[runningJob].XPperDay;
             updateProgressBar();
         }
         
