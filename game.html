@@ -92,6 +92,7 @@
      <h5 id="net">Net/day: 0</h5>
      <h5 id="salary">Income/day: 0</h5>
      <h5 id="payment">Expense/day: 0</h5>
+        <p>:))</p>
     </div>
     <div style="width: 600px;">
        <div class="tab">
@@ -261,8 +262,8 @@
             remainder = age % 360;
             document.getElementById("age").innerText = "Age "+ Math.floor(age/360) + " Month " + Math.floor(remainder/30) + " Day " + (remainder % 30) ;
             //Salary and Payment
-            var netPerDay
-            netPerDay = salary - payment
+            var netPerDay;
+            netPerDay = salary - payment;
             document.getElementById("salary").innerText = "Net/day:  " + netPerDay;
             document.getElementById("salary").innerText = "Income/day: " + salary;
             document.getElementById("payment").innerText = "Expense/day: " + payment;
