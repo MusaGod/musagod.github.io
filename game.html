@@ -242,7 +242,7 @@
                document.querySelector('.income[id="'+i+'"]').innerText = jobs[i].income;
                document.querySelector('.XP[id="'+i+'"]').innerText = jobs[i].XPperDay;
                const XPleft123 = jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10)) - jobs[i].XPnow;
-               document.querySelector('.XPleft[id="'+i+'"]').innerText = XPleft123;
+               document.querySelector('.XPleft[id="'+i+'"]').innerText = Math.floor(XPleft123);
                document.querySelector('.maxLevel[id="'+i+'"]').innerText = jobs[i].maxLevel;
                document.querySelector('.progress-bar-fill[id="'+i+'"]').style.width = `${progressPercent}%`;
            }
