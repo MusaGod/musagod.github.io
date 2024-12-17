@@ -89,8 +89,8 @@
      <button id="pauseButton" onclick="pause()">Pause</button>
    <p id="money">Balance(in coins): 0</p>
    <p id="spiritStone" class="spirit">Balance(in stones): 0</p>
-     <h5 id="net">Net/day: 0</h5>
-     <h5 id="salary">Income/day: 0</h5>
+     <h5 id="net">Net/day: 1</h5>
+     <h5 id="salary">Income/day: 1</h5>
      <h5 id="payment">Expense/day: 0</h5>
         <p>Ổn?</p>
     </div>
@@ -231,8 +231,7 @@
              {name:"Merchant",level:1,XPfirstLevel:100,XPnow:0,XPperDay:1,income:50,maxLevel:0},            
         ];
        function updateProgressBar(){
-           var progressPercent = 0;
-           var i;
+           var i, progressPercent = 0;
            for (i=0;i<jobs.length;i++){
                progressPercent = (jobs[i].XPnow/(jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10))))*100;
                if (jobs[i].XPnow >= jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10) )){
@@ -242,8 +241,8 @@
                document.querySelector('.level[id=i.toString()]').innerText = jobs[i].level;
                document.querySelector('.income[id=i.toString()]').innerText = jobs[i].income;
                document.querySelector('.XP[id=i.toString()]').innerText = jobs[i].XPperDay;
-               const XPleft = jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10) - jobs[i].XPnow;
-               document.querySelector('.XPleft[id=i.toString()]').innerText = XPleft;
+               const XPleft123 = jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10) - jobs[i].XPnow;
+               document.querySelector('.XPleft[id=i.toString()]').innerText = XPleft123;
                document.querySelector('.maxLevel[id=i.toString()]').innerText = jobs[i].maxLevel;
                document.querySelector('.progress-bar-fill[id=i.toString()]').style.width = `${progressPercent}%`;
            }
@@ -253,17 +252,16 @@
         } 
         function EverythingIncreaseOverTime(){
             money = money + salary - payment;
-            age++;
-            //Money
             document.getElementById("money").innerText = "Balance(in coins): " + money;
             //Age
             var remainder;
+            age++;
             remainder = age % 360;
             document.getElementById("age").innerText = "Age "+ Math.floor(age/360) + " Month " + Math.floor(remainder/30) + " Day " + (remainder % 30) ;
             //Salary and Payment
             var netPerDay;
             netPerDay = salary - payment;
-            document.getElementById("salary").innerText = "Net/day:  " + netPerDay;
+            document.getElementById("net").innerText = "Net/day:  " + netPerDay;
             document.getElementById("salary").innerText = "Income/day: " + salary;
             document.getElementById("payment").innerText = "Expense/day: " + payment;
             //UNLOCK
