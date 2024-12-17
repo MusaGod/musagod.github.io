@@ -92,7 +92,7 @@
      <h5 id="net">Net/day: 0</h5>
      <h5 id="salary">Income/day: 0</h5>
      <h5 id="payment">Expense/day: 0</h5>
-        <p>Còn lỗi không?</p>
+        <p>Ổn?</p>
     </div>
     <div style="width: 600px;">
        <div class="tab">
@@ -212,7 +212,6 @@
    </div>
         
     <script>
-        let score = 0;
         let speed = 100;
         let intervalId;
         let paused = false;
@@ -232,7 +231,7 @@
              {name:"Merchant",level:1,XPfirstLevel:100,XPnow:0,XPperDay:1,income:50,maxLevel:0},            
         ];
        function updateProgressBar(){
-           let progressPercent = (XPcurrentJob / XPneededNextJob) * 100;
+           var progressPercent = 0;
            var i;
            for (i=0;i<jobs.length;i++){
                progressPercent = (jobs[i].XPnow/(jobs[i].XPfirstLevel**((9/10)+(jobs[i].level/10))))*100;
